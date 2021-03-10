@@ -8,8 +8,8 @@ services:
     ports:
       - 9090:9090
     networks:
-      - docker-net
+      - local-net
 
 networks:
-  docker-net:
+  local-net:
     external: true
