@@ -27,3 +27,11 @@ scrape_configs:
 
     static_configs:
       - targets: ['prometheus-singleton:9090']
+
+  # Postgres
+  - job_name: 'postgres'
+    static_configs:
+      - targets: ['postgres-exporter-singleton:9187']
+        labels:
+          instance: 'postgres-01'
+          platform: 'ec2'
