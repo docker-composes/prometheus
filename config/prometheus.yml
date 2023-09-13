@@ -9,7 +9,7 @@ alerting:
   alertmanagers:
     - static_configs:
         - targets:
-          # - alertmanager:9093
+        # - alertmanager:9093
 
 # Load rules once and periodically evaluate them according to the global 'evaluation_interval'.
 rule_files:
@@ -26,12 +26,19 @@ scrape_configs:
     # scheme defaults to 'http'.
 
     static_configs:
-      - targets: ['prometheus-singleton:9090']
+      - targets: ['prometheus:9090']
 
-  # Postgres
-  - job_name: 'postgres'
-    static_configs:
-      - targets: ['postgres-exporter-singleton:9187']
-        labels:
-          instance: 'postgres-01'
-          platform: 'ec2'
+  - job_name: 'test'
+    static_configs: 
+      - targets: ['192.168.18.4:8080'] 
+      - labels: 
+          test: pre_test
+
+
+# Postgres
+#  - job_name: 'postgres'
+#    static_configs:
+#      - targets: ['postgres-exporter-singleton:9187']
+#        labels:
+#          instance: 'postgres-01'
+#          platform: 'ec2'

@@ -2,9 +2,9 @@ version: '2.2'
 services:
   prometheus-singleton:
     image: prom/prometheus:v2.12.0
-    container_name: prometheus-singleton
+    container_name: prometheus
     volumes:
-      - ./data:/prometheus-data
+      - ./data:/prometheus
       - ./config/prometheus.yml:/etc/prometheus/prometheus.yml
     ports:
       - 9090:9090
